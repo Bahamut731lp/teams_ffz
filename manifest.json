@@ -1,0 +1,13 @@
+{    
+    "name": "Teams FFZ",
+    "version": "1.0",
+    "description": "FrankerFaceZ Integration for Microsoft Teams",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "matches": ["*://teams.microsoft.com/*"],
+            "run_at": "document_idle",
+            "js": ["background.js"]
+        }
+    ]
+}
