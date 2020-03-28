@@ -10,6 +10,21 @@
 9. Výborně! Rozšíření bylo nainstalováno! Běžte ho vyzkoušet do teams.microsoft.com!
 10. Vychutnejte si tento dortík, který si za tak skvělou práci zasloužíte! 🧁
 
+# FAQ
+<dl>
+  <dt>Jak to funguje?</dt>
+  <dd>Jednoduše. Kód sleduje změny ve zprávách a nahrazuje text emotů za obrázky :)</dd>
+  
+  <dt>Funguje to i chatu schůze/streamu?</dt>
+  <dd>Ano.</dd>
+  
+  <dt>Jde nějak přidat emote?</dt>
+  <dd>Výběr emotů je pro všechny stejný. Pokud chceš přidat emote, můžeš buďto otevřít ticket v `issues` nebo vytvořit `branch`, přidat ho a podat `pull request` :)</dd>
+  
+  <dt>Něco se pokazilo a rozšíření mi nefunguje, co mám dělat?</dt>
+  <dd>Zkus reinstalaci rozšíření, pokud problémy nadále přetrvávají, otevři zde ticket v záložce issues :)</dd>
+</dl>
+
 # Seznam emotů
 
 Text emotu | Obrázek emotu
