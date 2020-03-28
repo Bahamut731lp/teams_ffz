@@ -6,8 +6,9 @@
 5. Klikněte na tlačítko `Načíst nerozbalené`.
 6. Najděte místo, kam jste uložili složku teams_ffz-master` a vyberte ji.
 7. Rozšíření by mělo být automaticky zapnuté. Pro jistotu zkontrolujte, že v pravém dolním rohu je přepínač přepnutý na stav "zapnuto" (modré zbarvení).
-8. Výborně! Rozšíření bylo nainstalováno! Běžte ho vyzkoušet do teams.microsoft.com!
-9. Vychutnejte si tento dortík, který si za tak skvělou práci zasloužíte! 🧁
+8. Vypněte vývojářskej režim, jelikož vás s tím chrome otravuje.
+9. Výborně! Rozšíření bylo nainstalováno! Běžte ho vyzkoušet do teams.microsoft.com!
+10. Vychutnejte si tento dortík, který si za tak skvělou práci zasloužíte! 🧁
 
 # Seznam emotů
 
