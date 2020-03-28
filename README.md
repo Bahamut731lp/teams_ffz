@@ -12,8 +12,7 @@
 
 # Seznam emotů
 
-
-First Header | Second Header
+Text emotu | Obrázek emotu
 ------------ | -------------
 AYAYA | ![AYAYA Emote](https://cdn.betterttv.net/emote/58493695987aab42df852e0f/2x)
 FeelsOkayMan | ![FeelsOkayMan Emote](https://cdn.betterttv.net/emote/5803757f3d506fea7ee35267/2x)
