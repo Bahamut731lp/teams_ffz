@@ -5,47 +5,59 @@
  */
 const parseEmotes = (element) => {
 
-    for (var string of element.querySelectorAll(".message-body-content")) {
-        for (emote in allowedEmotes) {
+    for (var string of element.querySelectorAll('.message-body-content:not(.emotesParsed)')) {
+
+        string.classList.add("emotesParsed");
+
+        let html = string.innerHTML;
+        let text = string.textContent.trim();
+
+        let words = text.split(/\s/);
+
+        let usedEmotes = words.filter((word) => {
+           if (allowedEmotes[word] !== undefined) return true;
+           else return false;
+        })
+
+        usedEmotes.forEach((emote, index) => {
             let reg = new RegExp(emote, "g");
-            if (string.innerHTML.includes(emote)) {
-                string.innerHTML = string.innerHTML.replace(reg, `<img src="${allowedEmotes[emote].url}" style="width: ${allowedEmotes[emote].width}!important; height:${allowedEmotes[emote].height}!important; position: relative!important"/>`);
-            }
-        }
+            string.innerHTML = string.innerHTML.replace(reg, `<img src="${allowedEmotes[emote].url}" style="width: ${allowedEmotes[emote].width}!important; height:${allowedEmotes[emote].height}!important; position: relative!important"/>`);
+        })
+
     }
 
 }
 
 const initObserver = () => {
 
-    var target, config;
-
     try {      
-        target = document.querySelector(".ts-message-list-container");
-        config = { characterData: true, attributes: false, childList: true, subtree: true };
+        var target = document.querySelector(".ts-message-list-container");
+        var config = { characterData: true, attributes: false, childList: true, subtree: true };
     } 
     catch (error) {
-        target = ""
+        var target = null
     }
 
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(watchChanges); 
+    var disableObserver = false;
+    observer.observe(target, config);
+
     // Callback function to execute when mutations are observed
-    const watchChanges = (mutationsList, observer) => {
-        //Odpojení observeru, aby nezaznamenával kódem dělané změny (to by se nepěkně zacyklilo)
-        observer.disconnect();
-       //Jednotlivé změny se projedou a naparsují
-        for(let mutation of mutationsList) {
-            if (mutation.type === 'childList') {
-                parseEmotes(mutation.target);
-                observer.observe(target, config);
+    function watchChanges(mutationsList, observer) {
+        //Jednotlivé změny se projedou a naparsují
+        if (!disableObserver) {
+            for(let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    disableObserver = true;
+                    parseEmotes(mutation.target);
+                    disableObserver = false;
+                }
             }
         }
+
     };
 
-    // Create an observer instance linked to the callback function
-    const observer = new MutationObserver(watchChanges);
-
-    // Start observing the target node for configured mutations
-    target != null ? observer.observe(target, config) : void(0);
 }
 
 /**
